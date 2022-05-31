@@ -1,2 +1,2 @@
-#!/bin/bash
-echo "ls -la" 
+#!/bin/bash 
+ls -la\n
