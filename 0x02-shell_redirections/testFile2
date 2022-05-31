@@ -1,0 +1,4 @@
+#!/bin/bash
+echo "I am the 1st line of the second file"
+echo "I am the 2nd line of the second file"
+echo "I am the 3rd line of the second file"
