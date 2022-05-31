@@ -1,2 +1,2 @@
 #!/bin/bash
-echo 'ls -la\n' > ls_cwd_content
+cat testFile > ls_cwd_content
