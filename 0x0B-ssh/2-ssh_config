@@ -1,0 +1,7 @@
+Host 52911-web-01
+ HostName 98.98.98.98
+ User ubuntu
+ Port 22
+ IdentityFile ~/.ssh/school
+ GSSAPIAuthentication yes
+ PasswordAuthentication no
