@@ -2,7 +2,7 @@
 # This script Configure the Nginx server so that /redirect_me is redirecting to another page.
 
 apt-get update
-apt-get install -y nginx
+sudo apt-get install nginx=1.4.6-1ubuntu3.12
 
 mkdir /etc/nginx/html
 touch /etc/nginx/html/index.html
