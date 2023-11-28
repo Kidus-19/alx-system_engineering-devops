@@ -2,7 +2,7 @@
 # This script installs nginx and modifies the default html file.
 
 sudo apt-get update
-sudo -y apt-get install nginx
+sudo apt-get install -y nginx
 echo "Hello World!" > /var/www/html/index.html
 service nginx start
 
