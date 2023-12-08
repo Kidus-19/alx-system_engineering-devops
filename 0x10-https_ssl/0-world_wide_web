@@ -1,0 +1,26 @@
+#!/bin/bash
+
+domain="$1"
+subdomain="$2"
+
+# Function to query DNS and display information
+get_subdomain_info() {
+    local subdomain="$1"
+    local record_type="$2"
+    local destination=$(dig +short "$subdomain.$domain" "$record_type")
+    if [ -n "$destination" ]; then
+        echo "The subdomain $subdomain is a $record_type record and points to $destination"
+    else
+        echo "Unable to retrieve information for $subdomain"
+    fi
+}
+
+# If subdomain is not specified, query for specific subdomains
+if [ -z "$subdomain" ]; then
+    get_subdomain_info "www" "A"
+    get_subdomain_info "lb-01" "A"
+    get_subdomain_info "web-01" "A"
+    get_subdomain_info "web-02" "A"
+else
+    get_subdomain_info "$subdomain" "A"
+fi
