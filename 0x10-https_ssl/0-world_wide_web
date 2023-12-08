@@ -13,7 +13,7 @@ dig_cmd () {
 	IP=$(echo "$INFO" | awk '{print $5}')
 	RECORD=$(echo "$INFO" | awk '{print $4}')
 
-	echo -e "The subdomain $sub is a $RECORD record and points to IP"
+	echo -e "The subdomain $sub is a $RECORD record and points to $IP"
 }
 
 if [ $# -eq 1 ]; then
