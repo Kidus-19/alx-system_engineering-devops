@@ -1,0 +1,11 @@
+[mysqld]
+user            = mysql
+pid-file        = /var/run/mysqld/mysqld.pid
+socket  = /var/run/mysqld/mysqld.sock
+port            = 3306
+datadir = /var/lib/mysql
+log_error = /var/log/mysql/error.log
+server-id = 2
+relay-log = /var/log/mysql/mysql-relay-bin.log
+log_bin = /var/log/mysql/mysql-bin.log
+binlog_do_db = tyrell_corp
