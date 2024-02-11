@@ -1,11 +1,11 @@
 frontend web-front
         bind *:80
-        bind *:443 ssl crt /etc/haproxy/certs/kidus19.tech.pem
+        bind *:443 ssl crt /etc/haproxy/certs/www.kidus19.tech.pem
         http-request redirect scheme https unless { ssl_fc }
         http-request set-header X-Forwarded-Proto https
         default_backend web-backend
 
 backend web-backend
-        balance roundrobin
-        server 52911-web-01 54.157.149.181:80 check
-        server 52911-web-02 52.73.29.44:80  check
+    balance roundrobin
+    server 52911-web-01 34.234.204.208:80 check
+    server 52911-web-02 34.229.55.78:80 check
