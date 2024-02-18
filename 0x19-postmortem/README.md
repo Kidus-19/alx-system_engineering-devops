@@ -1,5 +1,8 @@
 0x19-postmortem
 
+![image](https://github.com/Kidus-19/alx-system_engineering-devops/assets/105101940/a9ad150b-7351-49b0-add8-96b6cbfca575)
+
+
 Issue Summary:
 
 Duration: February 15, 2024, 9:00 AM to February 15, 2024, 11:30 AM (PST)
