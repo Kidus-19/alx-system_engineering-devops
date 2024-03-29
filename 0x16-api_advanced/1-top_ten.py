@@ -4,17 +4,17 @@
 """
 import requests
 
-
 def top_ten(subreddit):
-    """Get 10 hot posts"""
-    url = f"https://www.reddit.com/r/{subreddit}/hot.json?limit=10"
-    headers = {'user-agent': 'request'}
-    response = requests.get(url, headers=headers, allow_redirects=False)
+    url = f"https://www.reddit.com/r/{subreddit}/hot.json"
+    headers = {"User-Agent": "Custom User Agent"}  # Set a custom User-Agent header
 
-    if response.status_code != 200:
-        print(None)
-        return
-
-    data = response.json().get("data").get("children")
-    top_10_posts = "\n".join(post.get("data").get("title") for post in data)
-    print(top_10_posts)
+    try:
+        response = requests.get(url, headers=headers, params={"limit": 10})
+        response.raise_for_status()  # Raise an exception for 4xx or 5xx status codes
+        data = response.json()
+        posts = data["data"]["children"]
+        for post in posts:
+            title = post["data"]["title"]
+            print(title)
+    except requests.RequestException:
+        print("None")
