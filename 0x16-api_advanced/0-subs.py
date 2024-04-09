@@ -3,23 +3,22 @@
 Script that queries subscribers on a given Reddit subreddit.
 """
 
+import json
 import requests
+import sys
+
 
 def number_of_subscribers(subreddit):
-    url = f"https://www.reddit.com/r/{subreddit}/about.json"
-    headers = {"User-Agent": "Custom User Agent"}  # Set a custom User-Agent header
-
-    try:
-        response = requests.get(url, headers=headers, allow_redirects=False)
-        if response.status_code == 200:
-            data = response.json()
-            subscribers = data["data"]["subscribers"]
-            return subscribers
-        elif response.status_code == 404:
-            # Subreddit not found
-            return 0
-        else:
-            # Other error occurred
-            return 0
-    except requests.RequestException:
-        return 0
+    """Read reddit API and return number subscribers """
+    username = 'ledbag123'
+    password = 'Reddit72'
+    user_pass_dict = {'user': username, 'passwd': password, 'api_type': 'json'}
+    headers = {'user-agent': '/u/ledbag123 API Python for Holberton School'}
+    url = 'https://www.reddit.com/r/{}/about.json'.format(subreddit)
+    client = requests.session()
+    client.headers = headers
+    r = client.get(url, allow_redirects=False)
+    if r.status_code == 200:
+        return (r.json()["data"]["subscribers"])
+    else:
+        return(0)
